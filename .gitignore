@@ -1,0 +1,21 @@
+# Local dataset; keep setup instructions
+HamshahriData/*
+!HamshahriData/README.md
+
+# Generated data and notebook backups
+outputs/
+.ipynb_checkpoints/
+main_old.ipynb
+
+# Python environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+__MACOSX/
+._*
