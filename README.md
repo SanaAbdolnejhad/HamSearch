@@ -17,9 +17,32 @@ The notebook covers data loading, preprocessing, vocabulary construction, rankin
 | `HamshahriData/README.md` | Required local dataset layout |
 | `.gitignore` | Excludes local data, generated output, and temporary files |
 
+## Download Dataset
+
+Download the matching dataset from this [GitHub repository](https://github.com/aminariafar/Ranking-HamshahriNewsletter-Documents):
+
+**[Download dataset source ZIP](https://codeload.github.com/aminariafar/Ranking-HamshahriNewsletter-Documents/zip/c4002859436a2d4755f089108c78b4c0ab124008)**
+
+This third-party repository contains a byte-identical copy of the project’s **5,375 documents**, **50 queries**, relevance judgments, and stopword file. The download is pinned to commit `c4002859436a2d4755f089108c78b4c0ab124008`.
+
+1. Extract the downloaded ZIP.
+2. Extract `HamshahriCorpus.zip` inside it.
+3. Copy only the dataset items into this project using the following paths:
+
+| Downloaded item | Destination in HamSearch |
+| --- | --- |
+| Extracted `HamshahriCorpus/` | `HamshahriData/HamshahriCorpus/` |
+| `Queries/` | `HamshahriData/Queries/` |
+| `RelativeAssessment/judgements.txt` | `HamshahriData/RelativeAssesemnt/judgements.txt` |
+| `persian_stopwords.txt` | `HamshahriData/persian_stopwords.txt` |
+
+**Rename the downloaded `RelativeAssessment` folder to `RelativeAssesemnt`** when placing it inside `HamshahriData`; the notebook expects that exact spelling. Ignore any `__MACOSX` folder.
+
+Keep `HamshahriData` beside `main.ipynb`. Dataset files remain excluded from Git by `.gitignore`. If you already have the original project dataset, no new download is needed.
+
 ## Run
 
-1. Obtain the project’s Hamshahri dataset separately and arrange it as described in `HamshahriData/README.md`.
+1. Download and place the dataset as described in [Download Dataset](#download-dataset).
 2. Open a terminal in this project folder. Use your existing working Python environment, or create a separate one:
 
 ```bash
@@ -59,7 +82,3 @@ Precision@K divides relevant hits by K even when fewer than K documents are retu
 Precision, Recall, and F1 are averaged separately over queries. Mean F1 is therefore not necessarily the harmonic mean of mean Precision and mean Recall.
 
 These scores describe the supplied subset and this metric convention, not the complete Hamshahri corpus. The notebook also lists the strongest and weakest queries by AP@K.
-
-## Data
-
-The dataset and derived document exports are excluded from this repository. Use the original project dataset or obtain an appropriate copy from its provider, following its usage terms. The reader expects one plain-text `.ham` file per document, numeric `.q` filenames, and two-column relevance judgments; other Hamshahri distributions may require conversion.
